@@ -607,6 +607,34 @@ public class ControllerTest {
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
 	}
+	
+	/**
+	 * @Test method for {@link Controller#getOutput(java.util.List)}
+	 */
+	@Test
+	void testGetOutput_AllMineArround_3x3() {
+
+		StringBuilder input = new StringBuilder();
+		input.append("3 3\n");
+		input.append("***\n");
+		input.append("*.*\n");
+		input.append("***\n");
+		input.append("0 0");
+
+		// Create a StringBuilder to store the file content
+		StringBuilder expectedOutput = new StringBuilder();
+		expectedOutput.append("Field #1:\n");
+		expectedOutput.append("***\n");
+		expectedOutput.append("*8*\n");
+		expectedOutput.append("***\n");
+
+		Scanner scanner = new Scanner(input.toString());
+		List<MineField> mineFields = controller.readInput(scanner);
+		String actualOutput = controller.getOutput(mineFields);
+
+		scanner.close();
+		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
+	}
 
 	/**
 	 * @Test method for {@link Controller#getOutput(java.util.List)}

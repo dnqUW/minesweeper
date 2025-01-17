@@ -147,6 +147,24 @@ public class MineFieldTest {
 
 	    assertEquals(expectedString, mineField.toString());
 	}
+	
+	@Test
+	void testUpdateSurroundingMines_DotIsInTheCenter() {
+	    String[][] field = {
+	        { "*", "*", "*" },
+	        { "*", ".", "*" },
+	        { "*", "*", "*" }
+	    };
+	    mineField.setMyMineField(field);
+	    mineField.procedureHint();
+
+	    String expectedString = 
+	        "***\n" +
+	        "*8*\n" +
+	        "***";
+
+	    assertEquals(expectedString, mineField.toString());
+	}
 
 	@Test
 	void testUpdateSurroundingCells_TwoMinesSideBySide() {
