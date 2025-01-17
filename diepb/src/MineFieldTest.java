@@ -54,17 +54,6 @@ public class MineFieldTest {
 	        assertEquals(false, mineField.isValidIndex(0, -1));
 	    }
 	    
-	    @Test
-	    void testSetMyMineField() {
-	        String[][] field = {
-	                {".", ".", "."},
-	                {".", ".", "."},
-	                {".", ".", "*"}
-	        };
-	        mineField.setMyMineField(field);
-	        String expectedString = "000\n000\n00*";
-	        assertEquals(expectedString, mineField.toString());
-	    }
 	    
 	    @Test
 	    void testIncreaseMineCount_OneMineAtTofLeft() {

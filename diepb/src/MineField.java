@@ -13,24 +13,11 @@ public class MineField {
     private String [][] myMineField;
 
     public void setMyMineField(String[][] myMineField) {
+    	
         this.myMineField = myMineField;
-        initializeMineCount();
+        
     }
     
-    
-    /**
-     * Initialize the mine count of minefield
-     */
-    private void initializeMineCount() {
-    	for (int i = 0; i < myMineField.length; i++) {
-            for (int j = 0; j < myMineField[0].length; j++) {
-                if(myMineField[i][j].equals(".")) {
-                	myMineField[i][j] = "0";
-                }
-
-            }
-        }
-    }
 
     /**
      * Transforms the minefield into the final form.
@@ -40,6 +27,8 @@ public class MineField {
             for (int j = 0; j < myMineField[0].length; j++) {
                 if(myMineField[i][j].equals("*")) {
                     updateSurroundingCells(i, j);
+                } else if (myMineField[i][j].equals(".")) {
+                	myMineField[i][j] = "0";
                 }
 
             }
@@ -80,6 +69,9 @@ public class MineField {
     private void increaseMineCount(int theXIndex, int theYIndex) {
         String theCell = myMineField[theXIndex][theYIndex];
         if (!theCell.equals("*")) {
+        	if(theCell.equals(".")) {
+        		theCell = "0";
+        	}
             int intValue = Integer.parseInt(theCell);
             myMineField[theXIndex][theYIndex] = String.valueOf(++intValue);
         }
@@ -97,7 +89,6 @@ public class MineField {
     }
 
     /**
-     * Returns a string representation of the MineField.
      *
      * @return a string representation of the MineField.
      */

@@ -37,8 +37,7 @@ public class Controller {
 					}
 				}
 				MineField mineField = new MineField();
-				mineField.setMyMineField(inputArray);
-				mineField.procedureHint();
+				mineField.setMyMineField(inputArray);	
 				mineFields.add(mineField);
 			}
 			if (val.equals("0 0"))
@@ -51,6 +50,7 @@ public class Controller {
 		int counter = 0;
 		StringBuilder result = new StringBuilder();
 		for (MineField mineField : theMineFields) {
+			mineField.procedureHint();
 			result.append("Field #");
 			result.append(String.valueOf(++counter));
 			result.append(":\n");
