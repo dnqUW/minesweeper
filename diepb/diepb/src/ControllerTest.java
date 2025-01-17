@@ -60,7 +60,7 @@ public class ControllerTest {
 		expectedInput.deleteCharAt(expectedInput.length() - 1);
 
 		scanner.close();
-		
+
 		// we only care about the data so we trim() the result strings.
 		assertEquals(expectedInput.toString().trim(), firstMineField.toString().trim());
 
@@ -212,7 +212,6 @@ public class ControllerTest {
 		expectedInput.append(".*.\n");
 		expectedInput.append(".*.\n");
 		expectedInput.append("...\n");
-		
 
 		scanner.close();
 		assertEquals(expectedInput.toString().trim(), firstMineField.toString().trim());
@@ -499,7 +498,61 @@ public class ControllerTest {
 		// Assertion: Compare the whole output as a string
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
 	}
-	
+
+	/**
+	 * @Test method for {@link Controller#getOutput(java.util.List)}
+	 */
+	@Test
+	void testGetOutput_80PercentMines_70x70() {
+
+		String filePath = "src/inputTestFiles/70x70MixedMines.txt";
+
+		// Create a StringBuilder to store the file content
+		StringBuilder content = getData(filePath);
+
+		String filePathOutput = "src/expectedOutputTestFiles/70x70MixedMinesOutput.txt";
+
+		// Create a StringBuilder to store the file content
+		StringBuilder expectedOutput = getData(filePathOutput);
+
+		// Test logic
+		Scanner scanner = new Scanner(content.toString());
+		List<MineField> mineFields = controller.readInput(scanner);
+		String actualOutput = controller.getOutput(mineFields);
+
+		scanner.close();
+
+		// Assertion: Compare the whole output as a string
+		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
+	}
+
+	/**
+	 * @Test method for {@link Controller#getOutput(java.util.List)}
+	 */
+	@Test
+	void testGetOutput_MultipleMineFields() {
+
+		String filePath = "src/inputTestFiles/multiple_minesweeper_input.txt";
+
+		// Create a StringBuilder to store the file content
+		StringBuilder content = getData(filePath);
+
+		String filePathOutput = "src/expectedOutputTestFiles/multiple_minesweeper_output.txt";
+
+		// Create a StringBuilder to store the file content
+		StringBuilder expectedOutput = getData(filePathOutput);
+
+		// Test logic
+		Scanner scanner = new Scanner(content.toString());
+		List<MineField> mineFields = controller.readInput(scanner);
+		String actualOutput = controller.getOutput(mineFields);
+
+		scanner.close();
+
+		// Assertion: Compare the whole output as a string
+		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
+	}
+
 	/**
 	 * @Test method for {@link Controller#getOutput(java.util.List)}
 	 */
@@ -526,21 +579,20 @@ public class ControllerTest {
 		// Assertion: Compare the whole output as a string
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
 	}
-	
+
 	/**
 	 * @Test method for {@link Controller#getOutput(java.util.List)}
 	 */
 	@Test
 	void testGetOutput_OneMineInTheCenter_3x3() {
 
-		
 		StringBuilder input = new StringBuilder();
 		input.append("3 3\n");
 		input.append("...\n");
 		input.append(".*.\n");
 		input.append("...\n");
 		input.append("0 0");
-				
+
 		// Create a StringBuilder to store the file content
 		StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
@@ -548,47 +600,135 @@ public class ControllerTest {
 		expectedOutput.append("1*1\n");
 		expectedOutput.append("111\n");
 
-
 		Scanner scanner = new Scanner(input.toString());
 		List<MineField> mineFields = controller.readInput(scanner);
 		String actualOutput = controller.getOutput(mineFields);
-		
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
 	}
-	
+
 	/**
 	 * @Test method for {@link Controller#getOutput(java.util.List)}
 	 */
 	@Test
 	void testGetOutput_OneMineAtTopLeft_2x2() {
 
-		
 		StringBuilder input = new StringBuilder();
 		input.append("2 2\n");
 		input.append("*.\n");
-		input.append("..\n");		
+		input.append("..\n");
 		input.append("0 0");
-				
+
 		// Create a StringBuilder to store the file content
 		StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("*1\n");
-		expectedOutput.append("11\n");		
-
-
+		expectedOutput.append("11\n");
 
 		Scanner scanner = new Scanner(input.toString());
 		List<MineField> mineFields = controller.readInput(scanner);
 		String actualOutput = controller.getOutput(mineFields);
-		
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
 	}
-	
-	
+
+	/**
+	 * @Test method for {@link Controller#getOutput(java.util.List)}
+	 */
+	@Test
+	void testGetOutput_TwoMinesAtBottomRight_5x5() {
+
+		StringBuilder input = new StringBuilder();
+		input.append("5 5\n");
+		input.append(".....\n");
+		input.append(".....\n");
+		input.append(".....\n");
+		input.append(".....\n");
+		input.append("...**\n");
+		input.append("0 0");
+
+		// Create a StringBuilder to store the file content
+		StringBuilder expectedOutput = new StringBuilder();
+		expectedOutput.append("Field #1:\n");
+		expectedOutput.append("00000\n");
+		expectedOutput.append("00000\n");
+		expectedOutput.append("00000\n");
+		expectedOutput.append("00122\n");
+		expectedOutput.append("001**\n");
+
+		Scanner scanner = new Scanner(input.toString());
+		List<MineField> mineFields = controller.readInput(scanner);
+		String actualOutput = controller.getOutput(mineFields);
+
+		scanner.close();
+		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
+	}
+
+	/**
+	 * @Test method for {@link Controller#getOutput(java.util.List)}
+	 */
+	@Test
+	void testGetOutput_AllMinesAtFirstRow_5x5() {
+
+		StringBuilder input = new StringBuilder();
+		input.append("5 5\n");
+		input.append("*****\n");
+		input.append(".....\n");
+		input.append(".....\n");
+		input.append(".....\n");
+		input.append(".....\n");
+		input.append("0 0");
+
+		// Create a StringBuilder to store the file content
+		StringBuilder expectedOutput = new StringBuilder();
+		expectedOutput.append("Field #1:\n");
+		expectedOutput.append("*****\n");
+		expectedOutput.append("23332\n");
+		expectedOutput.append("00000\n");
+		expectedOutput.append("00000\n");
+		expectedOutput.append("00000\n");
+
+		Scanner scanner = new Scanner(input.toString());
+		List<MineField> mineFields = controller.readInput(scanner);
+		String actualOutput = controller.getOutput(mineFields);
+
+		scanner.close();
+		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
+	}
+
+	/**
+	 * @Test method for {@link Controller#getOutput(java.util.List)}
+	 */
+	@Test
+	void testGetOutput_AllMinesAtLastRow_5x5() {
+
+		StringBuilder input = new StringBuilder();
+		input.append("5 5\n");
+		input.append(".....\n");
+		input.append(".....\n");
+		input.append(".....\n");
+		input.append(".....\n");
+		input.append("*****\n");
+		input.append("0 0");
+
+		// Create a StringBuilder to store the file content
+		StringBuilder expectedOutput = new StringBuilder();
+		expectedOutput.append("Field #1:\n");
+		expectedOutput.append("00000\n");
+		expectedOutput.append("00000\n");
+		expectedOutput.append("00000\n");
+		expectedOutput.append("23332\n");
+		expectedOutput.append("*****\n");
+
+		Scanner scanner = new Scanner(input.toString());
+		List<MineField> mineFields = controller.readInput(scanner);
+		String actualOutput = controller.getOutput(mineFields);
+
+		scanner.close();
+		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
+	}
 
 	/**
 	 * Ultility method to read file and return content as a StringBuilder

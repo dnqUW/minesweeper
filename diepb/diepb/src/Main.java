@@ -19,11 +19,12 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
-
+        
         if (args.length == 1){
             input = new Scanner(new File(args[0]));
         }
 
+        // Read input data and print out the input
         Controller controller = new Controller();
         List<MineField> mineFields = controller.readInput(input);
         String output = controller.getOutput(mineFields);
