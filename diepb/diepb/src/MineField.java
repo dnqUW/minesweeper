@@ -52,8 +52,8 @@ public class MineField {
 				{ theXIndex + 1, theYIndex }, { theXIndex + 1, theYIndex - 1 }, { theXIndex + 1, theYIndex + 1 } };
 
 		for (Integer[] surroundingCell : surroundingCells) {
-			int xIndex = surroundingCell[0];
-			int yIndex = surroundingCell[1];
+			final int xIndex = surroundingCell[0];
+			final int yIndex = surroundingCell[1];
 			if (isValidIndex(xIndex, yIndex)) {
 				// If the index is valid then increase the mine count
 				increaseMineCount(xIndex, yIndex);

@@ -31,7 +31,7 @@ public class Main {
 
         // Read input data and print out the input
         final Controller controller = new Controller();
-        List<MineField> mineFields = controller.readInput(input);
+        final List<MineField> mineFields = controller.readInput(input);
         final String output = controller.getOutput(mineFields);
         System.out.print(output);
         input.close();

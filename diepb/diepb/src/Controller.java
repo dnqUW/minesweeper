@@ -24,7 +24,7 @@ public class Controller {
 	 * @return the list of MinedFields objects that created from the input data
 	 */
 	List<MineField> readInput(final Scanner theScanner) {
-		List<MineField> mineFields = new ArrayList<MineField>();
+		final List<MineField> mineFields = new ArrayList<MineField>();
 		while (true) {
 			final String val = theScanner.nextLine();
 
@@ -34,14 +34,14 @@ public class Controller {
 
 			// Start processing for each MineField
 			if (matcher.matches() && !val.equals("0 0")) {
-				String[] dimensionSize = val.split(" ");
+				final String[] dimensionSize = val.split(" ");
 
 				// Get dimension of MineField
 				final int rowNumbers = Integer.parseInt(dimensionSize[0]);
 				final int colNumbers = Integer.parseInt(dimensionSize[1]);
 
 				// Extract the input data to an Array object
-				String[][] inputArray = new String[rowNumbers][colNumbers];
+				final String[][] inputArray = new String[rowNumbers][colNumbers];
 				for (int i = 0; i < rowNumbers; i++) {
 					final String rowString = theScanner.nextLine().toString();
 					for (int j = 0; j < colNumbers; j++) {
