@@ -16,9 +16,9 @@ import java.util.*;
 public class MinesweeperMapGenerator {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        File mapFile = new File("minesweeper_map.txt");
+        final Scanner scanner = new Scanner(System.in);
+        final Random random = new Random();
+        final File mapFile = new File("minesweeper_map.txt");
 
         // Ensure the file starts empty when the program is first executed
         try {
@@ -43,7 +43,7 @@ public class MinesweeperMapGenerator {
             int m = scanner.nextInt();
 
             // Prompt user for the percentage of mines
-            System.out.print("Enter the percentage of mines: ");
+            System.out.print("Enter the percentage of mines (e.g. 20): ");
             int minePercentage = scanner.nextInt();
 
             // Validate inputs
@@ -53,7 +53,7 @@ public class MinesweeperMapGenerator {
             }
 
             // Create the map
-            char[][] map = generateMap(n, m, minePercentage, random);
+            final char[][] map = generateMap(n, m, minePercentage, random);
 
             // Append map to the file after the first map
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(mapFile, true))) {
@@ -72,8 +72,8 @@ public class MinesweeperMapGenerator {
 
             // Ask if the user wants to create another map
             System.out.print("Do you want to create another map? (y/n): ");
-            char response = scanner.next().toLowerCase().charAt(0);
-            if (response != 'y') {
+            final char response = scanner.next().toLowerCase().charAt(0);
+            if (response == 'y') {
                 break;
             }
         }
@@ -90,7 +90,7 @@ public class MinesweeperMapGenerator {
         scanner.close();
     }
 
-    private static char[][] generateMap(int n, int m, int minePercentage, Random random) {
+    private static char[][] generateMap(final int n, final int m, final int minePercentage, final Random random) {
         char[][] map = new char[n][m];
 
         // Initialize the map with safe spaces
