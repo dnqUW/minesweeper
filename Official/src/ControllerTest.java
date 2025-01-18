@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 /**
  * This class implements test cases for Controller class.
  *
- * @author Bao Thinh Diep
+ * @author Bao Thinh Diep, Mathew Belmont, Derek Quach
  * @version 1.0
  */
 public class ControllerTest {

@@ -6,7 +6,7 @@
 /**
  * This class represent the mine field.
  *
- * @author Bao Thinh Diep
+ * @author Bao Thinh Diep, Mathew Belmont, Derek Quach
  * @version 1.0
  */
 public class MineField {

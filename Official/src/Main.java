@@ -12,7 +12,7 @@ import java.util.Scanner;
 /**
  * This is main class of the program
  *
- * @author Bao Thinh Diep
+ * @author Bao Thinh Diep, Mathew Belmont, Derek Quach
  * @version 1.0
  */
 public class Main {

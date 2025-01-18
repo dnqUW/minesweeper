@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 /**
  * This is controller class of the program
  *
- * @author Bao Thinh Diep
+ * @author Bao Thinh Diep, Mathew Belmont, Derek Quach
  * @version 1.0
  */
 public class Controller {
