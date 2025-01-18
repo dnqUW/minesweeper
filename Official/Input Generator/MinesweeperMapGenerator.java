@@ -48,7 +48,8 @@ public class MinesweeperMapGenerator {
 
             // Validate inputs
             if (n <= 0 || m <= 0 || minePercentage < 0 || minePercentage > 100) {
-                System.out.println("Invalid input. Please enter positive integers for dimensions and a percentage between 0 and 100 for mines.");
+                System.out.println("Invalid input. Please enter positive integers for dimensions " +
+                        "and a percentage between 0 and 100 for mines.");
                 continue;
             }
 
