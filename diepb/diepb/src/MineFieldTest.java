@@ -23,7 +23,7 @@ public class MineFieldTest {
 
 	@Test
 	void testIsValidIndex_ValidIndices() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "0", "0", "0" },
 	        { "0", "*", "0" },
 	        { "0", "0", "0" }
@@ -34,7 +34,7 @@ public class MineFieldTest {
 
 	@Test
 	void testIsValidIndex_InvalidNegativeRow() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "0", "0", "0" },
 	        { "0", "*", "0" },
 	        { "0", "0", "0" }
@@ -45,7 +45,7 @@ public class MineFieldTest {
 
 	@Test
 	void testIsValidIndex_InvalidNegativeColumn() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "0", "0", "0" },
 	        { "0", "*", "0" },
 	        { "0", "0", "0" }
@@ -56,7 +56,7 @@ public class MineFieldTest {
 
 	@Test
 	void testIncreaseMineCount_OneMineAtTopLeft() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "*", "0" },
 	        { "0", "0" },
 	        { "0", "0" }
@@ -65,7 +65,7 @@ public class MineFieldTest {
 	    mineField.setMyMineField(field);
 	    mineField.procedureHint();
 
-	    String expectedString = 
+	    final String expectedString = 
 	        "*1\n" +
 	        "11\n" +
 	        "00";
@@ -75,7 +75,7 @@ public class MineFieldTest {
 
 	@Test
 	void testIncreaseMineCount_TwoMineAtFirstLine() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "*", "*" },
 	        { "0", "0" },
 	        { "0", "0" }
@@ -84,7 +84,7 @@ public class MineFieldTest {
 	    mineField.setMyMineField(field);
 	    mineField.procedureHint();
 
-	    String expectedString = 
+	    final String expectedString = 
 	        "**\n" +
 	        "22\n" +
 	        "00";
@@ -94,7 +94,7 @@ public class MineFieldTest {
 
 	@Test
 	void testIncreaseMineCount_NoMines() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "0", "0" },
 	        { "0", "0" },
 	        { "0", "0" }
@@ -103,7 +103,7 @@ public class MineFieldTest {
 	    mineField.setMyMineField(field);
 	    mineField.procedureHint();
 
-	    String expectedString = 
+	    final String expectedString = 
 	        "00\n" +
 	        "00\n" +
 	        "00";
@@ -113,7 +113,7 @@ public class MineFieldTest {
 
 	@Test
 	void testIncreaseMineCount_AllMines() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "*", "*" },
 	        { "*", "*" },
 	        { "*", "*" }
@@ -122,7 +122,7 @@ public class MineFieldTest {
 	    mineField.setMyMineField(field);
 	    mineField.procedureHint();
 
-	    String expectedString = 
+	    final String expectedString = 
 	        "**\n" +
 	        "**\n" +
 	        "**";
@@ -132,7 +132,7 @@ public class MineFieldTest {
 
 	@Test
 	void testUpdateSurroundingCells_mineIsInTheCenter() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "0", "0", "0" },
 	        { "0", "*", "0" },
 	        { "0", "0", "0" }
@@ -140,7 +140,7 @@ public class MineFieldTest {
 	    mineField.setMyMineField(field);
 	    mineField.procedureHint();
 
-	    String expectedString = 
+	    final String expectedString = 
 	        "111\n" +
 	        "1*1\n" +
 	        "111";
@@ -150,7 +150,7 @@ public class MineFieldTest {
 	
 	@Test
 	void testUpdateSurroundingMines_DotIsInTheCenter() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "*", "*", "*" },
 	        { "*", ".", "*" },
 	        { "*", "*", "*" }
@@ -158,7 +158,7 @@ public class MineFieldTest {
 	    mineField.setMyMineField(field);
 	    mineField.procedureHint();
 
-	    String expectedString = 
+	    final String expectedString = 
 	        "***\n" +
 	        "*8*\n" +
 	        "***";
@@ -168,7 +168,7 @@ public class MineFieldTest {
 
 	@Test
 	void testUpdateSurroundingCells_TwoMinesSideBySide() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "0", "0", "0" },
 	        { "0", "*", "*" },
 	        { "0", "0", "0" }
@@ -176,7 +176,7 @@ public class MineFieldTest {
 	    mineField.setMyMineField(field);
 	    mineField.procedureHint();
 
-	    String expectedString = 
+	    final String expectedString = 
 	        "122\n" +
 	        "1**\n" +
 	        "122";
@@ -186,14 +186,14 @@ public class MineFieldTest {
 
 	@Test
 	void testToString() {
-	    String[][] field = {
+	    final String[][] field = {
 	        { "0", "0", "0" },
 	        { "0", "*", "0" },
 	        { "0", "0", "0" }
 	    };
 	    mineField.setMyMineField(field);
 
-	    String expectedString = 
+	    final String expectedString = 
 	        "000\n" +
 	        "0*0\n" +
 	        "000";

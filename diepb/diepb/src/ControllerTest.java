@@ -39,7 +39,7 @@ public class ControllerTest {
 	@Test
 	void testReadInput_AllMines_100x100() {
 		// Input: 100x100 with all mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("100 100\n");
 		for (int i = 0; i < 100; i++) {
 			input.append("*".repeat(100)).append("\n");
@@ -47,12 +47,12 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		MineField firstMineField = mineFields.get(0);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final MineField firstMineField = mineFields.get(0);
 
 		// Expected output
-		StringBuilder expectedInput = new StringBuilder();
+		final StringBuilder expectedInput = new StringBuilder();
 		for (int i = 0; i < 100; i++) {
 			expectedInput.append("*".repeat(100)).append("\n");
 		}
@@ -72,7 +72,7 @@ public class ControllerTest {
 	@Test
 	void testReadInput_NoMines_100x100() {
 		// Input: 100x100 with no mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("100 100\n");
 		for (int i = 0; i < 100; i++) {
 			input.append(".".repeat(100)).append("\n");
@@ -80,9 +80,9 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		MineField firstMineField = mineFields.get(0);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final MineField firstMineField = mineFields.get(0);
 
 		// Expected output
 		StringBuilder expectedInput = new StringBuilder();
@@ -101,15 +101,15 @@ public class ControllerTest {
 	@Test
 	void testReadInput_1x1_Mine() {
 		// Input: 1x1 with a single mine
-		String input = "1 1\n*\n0 0";
+		final String input = "1 1\n*\n0 0";
 
 		// Test logic
-		Scanner scanner = new Scanner(input);
-		List<MineField> mineFields = controller.readInput(scanner);
-		MineField firstMineField = mineFields.get(0);
+		final Scanner scanner = new Scanner(input);
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final MineField firstMineField = mineFields.get(0);
 
 		// Expected output
-		String expectedInput = "*";
+		final String expectedInput = "*";
 
 		scanner.close();
 		assertEquals(expectedInput, firstMineField.toString());
@@ -122,15 +122,15 @@ public class ControllerTest {
 	@Test
 	void testReadInput_1x1_NoMine() {
 		// Input: 1x1 with no mine
-		String input = "1 1\n.\n0 0";
+		final String input = "1 1\n.\n0 0";
 
 		// Test logic
-		Scanner scanner = new Scanner(input);
-		List<MineField> mineFields = controller.readInput(scanner);
-		MineField firstMineField = mineFields.get(0);
+		final Scanner scanner = new Scanner(input);
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final MineField firstMineField = mineFields.get(0);
 
 		// Expected output
-		String expectedInput = ".";
+		final String expectedInput = ".";
 
 		scanner.close();
 		assertEquals(expectedInput, firstMineField.toString());
@@ -143,18 +143,18 @@ public class ControllerTest {
 	@Test
 	void testReadInput_1x100() {
 		// Input: 1x100 alternating mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("1 100\n");
 		input.append("*.".repeat(50)).append("\n");
 		input.append("0 0");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		MineField firstMineField = mineFields.get(0);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final MineField firstMineField = mineFields.get(0);
 
 		// Expected output
-		String expectedInput = "*.".repeat(50);
+		final String expectedInput = "*.".repeat(50);
 
 		scanner.close();
 		assertEquals(expectedInput, firstMineField.toString());
@@ -167,7 +167,7 @@ public class ControllerTest {
 	@Test
 	void testReadInput_100x1() {
 		// Input: 100x1 alternating mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("100 1\n");
 		for (int i = 0; i < 100; i++) {
 			input.append(i % 2 == 0 ? "*\n" : ".\n");
@@ -175,9 +175,9 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		MineField firstMineField = mineFields.get(0);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final MineField firstMineField = mineFields.get(0);
 
 		// Expected output
 		StringBuilder expectedInput = new StringBuilder();
@@ -195,7 +195,7 @@ public class ControllerTest {
 	 */
 	void testReadInput_AllMines_3x3() {
 		// Input: 100x100 with all mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("3 3\n");
 		input.append(".*.\n");
 		input.append(".*.\n");
@@ -203,9 +203,9 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		MineField firstMineField = mineFields.get(0);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final MineField firstMineField = mineFields.get(0);
 
 		// Expected output
 		StringBuilder expectedInput = new StringBuilder();
@@ -229,7 +229,7 @@ public class ControllerTest {
 	@Test
 	void testGetOutputAllMines_100x100() {
 		// Input: 100x100 with all mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("100 100\n");
 		for (int i = 0; i < 100; i++) {
 			input.append("*".repeat(100)).append("\n");
@@ -237,7 +237,7 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Expected output
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		for (int i = 0; i < 100; i++) {
 			expectedOutput.append("*".repeat(100)).append("\n");
@@ -245,9 +245,9 @@ public class ControllerTest {
 		expectedOutput.append("\n");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 
@@ -261,7 +261,7 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_NoMines_100x100() {
 		// Input: 100x100 with no mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("100 100\n");
 		for (int i = 0; i < 100; i++) {
 			input.append(".".repeat(100)).append("\n");
@@ -269,7 +269,7 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Expected output
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		for (int i = 0; i < 100; i++) {
 			expectedOutput.append("0".repeat(100)).append("\n");
@@ -277,9 +277,9 @@ public class ControllerTest {
 		expectedOutput.append("\n");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -291,20 +291,20 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_NoMines_1x100() {
 		// Input: 1x100 with no mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("1 100\n");
 		input.append(".".repeat(100)).append("\n");
 		input.append("0 0");
 
 		// Expected output
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("0".repeat(100)).append("\n\n");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -316,20 +316,20 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_AllMines_1x100() {
 		// Input: 1x100 with all mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("1 100\n");
 		input.append("*".repeat(100)).append("\n");
 		input.append("0 0");
 
 		// Expected output
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("*".repeat(100)).append("\n\n");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -341,20 +341,20 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_NoMines_1x1() {
 		// Input: 1x1 with no mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("1 1\n");
 		input.append(".\n");
 		input.append("0 0");
 
 		// Expected output
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("0\n\n");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -366,20 +366,20 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_AllMines_1x1() {
 		// Input: 1x1 with all mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("1 1\n");
 		input.append("*\n");
 		input.append("0 0");
 
 		// Expected output
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("*\n\n");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -391,7 +391,7 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_NoMines_100x1() {
 		// Input: 100x1 with no mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("100 1\n");
 		for (int i = 0; i < 100; i++) {
 			input.append(".\n");
@@ -399,7 +399,7 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Expected output
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		for (int i = 0; i < 100; i++) {
 			expectedOutput.append("0\n");
@@ -407,9 +407,9 @@ public class ControllerTest {
 		expectedOutput.append("\n");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -421,7 +421,7 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_AllMines_100x1() {
 		// Input: 100x1 with all mines
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("100 1\n");
 		for (int i = 0; i < 100; i++) {
 			input.append("*\n");
@@ -429,7 +429,7 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Expected output
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		for (int i = 0; i < 100; i++) {
 			expectedOutput.append("*\n");
@@ -437,9 +437,9 @@ public class ControllerTest {
 		expectedOutput.append("\n");
 
 		// Test logic
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -451,20 +451,20 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_MixedMines_100x100() {
 
-		String filePath = "src/inputTestFiles/100x100MixedMines.txt";
+		final String filePath = "src/inputTestFiles/100x100MixedMines.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder content = getData(filePath);
+		final StringBuilder content = getData(filePath);
 
-		String filePathOutput = "src/expectedOutputTestFiles/100x100MixedMinesOutput.txt";
+		final String filePathOutput = "src/expectedOutputTestFiles/100x100MixedMinesOutput.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = getData(filePathOutput);
+		final StringBuilder expectedOutput = getData(filePathOutput);
 
 		// Test logic
-		Scanner scanner = new Scanner(content.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(content.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 
@@ -478,20 +478,20 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_30PercentMines_50x50() {
 
-		String filePath = "src/inputTestFiles/50x50MixedMines.txt";
+		final String filePath = "src/inputTestFiles/50x50MixedMines.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder content = getData(filePath);
+		final StringBuilder content = getData(filePath);
 
-		String filePathOutput = "src/expectedOutputTestFiles/50x50MixedMinesOutput.txt";
+		final String filePathOutput = "src/expectedOutputTestFiles/50x50MixedMinesOutput.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = getData(filePathOutput);
+		final StringBuilder expectedOutput = getData(filePathOutput);
 
 		// Test logic
-		Scanner scanner = new Scanner(content.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(content.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 
@@ -505,20 +505,20 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_80PercentMines_70x70() {
 
-		String filePath = "src/inputTestFiles/70x70MixedMines.txt";
+		final String filePath = "src/inputTestFiles/70x70MixedMines.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder content = getData(filePath);
+		final StringBuilder content = getData(filePath);
 
-		String filePathOutput = "src/expectedOutputTestFiles/70x70MixedMinesOutput.txt";
+		final String filePathOutput = "src/expectedOutputTestFiles/70x70MixedMinesOutput.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = getData(filePathOutput);
+		final StringBuilder expectedOutput = getData(filePathOutput);
 
 		// Test logic
-		Scanner scanner = new Scanner(content.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(content.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 
@@ -532,20 +532,20 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_MultipleMineFields() {
 
-		String filePath = "src/inputTestFiles/multiple_minesweeper_input.txt";
+		final String filePath = "src/inputTestFiles/multiple_minesweeper_input.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder content = getData(filePath);
+		final StringBuilder content = getData(filePath);
 
-		String filePathOutput = "src/expectedOutputTestFiles/multiple_minesweeper_output.txt";
+		final String filePathOutput = "src/expectedOutputTestFiles/multiple_minesweeper_output.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = getData(filePathOutput);
+		final StringBuilder expectedOutput = getData(filePathOutput);
 
 		// Test logic
-		Scanner scanner = new Scanner(content.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(content.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 
@@ -559,20 +559,20 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_TwoMineFields() {
 
-		String filePath = "src/inputTestFiles/TwoMineFields.txt";
+		final String filePath = "src/inputTestFiles/TwoMineFields.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder content = getData(filePath);
+		final StringBuilder content = getData(filePath);
 
-		String filePathOutput = "src/expectedOutputTestFiles/TwoMineFieldsOutput.txt";
+		final String filePathOutput = "src/expectedOutputTestFiles/TwoMineFieldsOutput.txt";
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = getData(filePathOutput);
+		final StringBuilder expectedOutput = getData(filePathOutput);
 
 		// Test logic
-		Scanner scanner = new Scanner(content.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(content.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 
@@ -586,7 +586,7 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_OneMineInTheCenter_3x3() {
 
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("3 3\n");
 		input.append("...\n");
 		input.append(".*.\n");
@@ -594,15 +594,15 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("111\n");
 		expectedOutput.append("1*1\n");
 		expectedOutput.append("111\n");
 
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -614,7 +614,7 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_AllMineArround_3x3() {
 
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("3 3\n");
 		input.append("***\n");
 		input.append("*.*\n");
@@ -622,15 +622,15 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("***\n");
 		expectedOutput.append("*8*\n");
 		expectedOutput.append("***\n");
 
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -642,21 +642,21 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_OneMineAtTopLeft_2x2() {
 
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("2 2\n");
 		input.append("*.\n");
 		input.append("..\n");
 		input.append("0 0");
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("*1\n");
 		expectedOutput.append("11\n");
 
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -668,7 +668,7 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_TwoMinesAtBottomRight_5x5() {
 
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("5 5\n");
 		input.append(".....\n");
 		input.append(".....\n");
@@ -678,7 +678,7 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("00000\n");
 		expectedOutput.append("00000\n");
@@ -686,9 +686,9 @@ public class ControllerTest {
 		expectedOutput.append("00122\n");
 		expectedOutput.append("001**\n");
 
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -700,7 +700,7 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_AllMinesAtFirstRow_5x5() {
 
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("5 5\n");
 		input.append("*****\n");
 		input.append(".....\n");
@@ -710,7 +710,7 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("*****\n");
 		expectedOutput.append("23332\n");
@@ -718,9 +718,9 @@ public class ControllerTest {
 		expectedOutput.append("00000\n");
 		expectedOutput.append("00000\n");
 
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -732,7 +732,7 @@ public class ControllerTest {
 	@Test
 	void testGetOutput_AllMinesAtLastRow_5x5() {
 
-		StringBuilder input = new StringBuilder();
+		final StringBuilder input = new StringBuilder();
 		input.append("5 5\n");
 		input.append(".....\n");
 		input.append(".....\n");
@@ -742,7 +742,7 @@ public class ControllerTest {
 		input.append("0 0");
 
 		// Create a StringBuilder to store the file content
-		StringBuilder expectedOutput = new StringBuilder();
+		final StringBuilder expectedOutput = new StringBuilder();
 		expectedOutput.append("Field #1:\n");
 		expectedOutput.append("00000\n");
 		expectedOutput.append("00000\n");
@@ -750,9 +750,9 @@ public class ControllerTest {
 		expectedOutput.append("23332\n");
 		expectedOutput.append("*****\n");
 
-		Scanner scanner = new Scanner(input.toString());
-		List<MineField> mineFields = controller.readInput(scanner);
-		String actualOutput = controller.getOutput(mineFields);
+		final Scanner scanner = new Scanner(input.toString());
+		final List<MineField> mineFields = controller.readInput(scanner);
+		final String actualOutput = controller.getOutput(mineFields);
 
 		scanner.close();
 		assertEquals(expectedOutput.toString().trim(), actualOutput.trim());
@@ -766,7 +766,7 @@ public class ControllerTest {
 	 */
 	public StringBuilder getData(String theFilePath) {
 		// Create a StringBuilder to store the file content
-		StringBuilder content = new StringBuilder();
+		final StringBuilder content = new StringBuilder();
 
 		// Read the file line by line
 		try (BufferedReader reader = new BufferedReader(new FileReader(theFilePath))) {
