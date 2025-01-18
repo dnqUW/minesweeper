@@ -47,7 +47,7 @@ public class MineField {
 	private void updateSurroundingCells(final int theXIndex, final int theYIndex) {
 
 		// Get indexes of surrounding cells of the current cell
-		Integer[][] surroundingCells = { { theXIndex - 1, theYIndex }, { theXIndex - 1, theYIndex - 1 },
+		final Integer[][] surroundingCells = { { theXIndex - 1, theYIndex }, { theXIndex - 1, theYIndex - 1 },
 				{ theXIndex - 1, theYIndex + 1 }, { theXIndex, theYIndex - 1 }, { theXIndex, theYIndex + 1 },
 				{ theXIndex + 1, theYIndex }, { theXIndex + 1, theYIndex - 1 }, { theXIndex + 1, theYIndex + 1 } };
 
@@ -98,7 +98,7 @@ public class MineField {
 	 */
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
+		final StringBuilder sb = new StringBuilder();
 		for (String[] strings : myMineField) {
 			for (int j = 0; j < myMineField[0].length; j++) {
 				sb.append(strings[j]);

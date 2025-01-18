@@ -26,24 +26,24 @@ public class Controller {
 	List<MineField> readInput(final Scanner theScanner) {
 		List<MineField> mineFields = new ArrayList<MineField>();
 		while (true) {
-			String val = theScanner.nextLine();
+			final String val = theScanner.nextLine();
 
 			// check for first line of each MineField
-			Pattern pattern = Pattern.compile("\\d+\\s\\d+");
-			Matcher matcher = pattern.matcher(val);
+			final Pattern pattern = Pattern.compile("\\d+\\s\\d+");
+			final Matcher matcher = pattern.matcher(val);
 
 			// Start processing for each MineField
 			if (matcher.matches() && !val.equals("0 0")) {
 				String[] dimensionSize = val.split(" ");
 
 				// Get dimension of MineField
-				int rowNumbers = Integer.parseInt(dimensionSize[0]);
-				int colNumbers = Integer.parseInt(dimensionSize[1]);
+				final int rowNumbers = Integer.parseInt(dimensionSize[0]);
+				final int colNumbers = Integer.parseInt(dimensionSize[1]);
 
 				// Extract the input data to an Array object
 				String[][] inputArray = new String[rowNumbers][colNumbers];
 				for (int i = 0; i < rowNumbers; i++) {
-					String rowString = theScanner.nextLine().toString();
+					final String rowString = theScanner.nextLine().toString();
 					for (int j = 0; j < colNumbers; j++) {
 
 						inputArray[i][j] = rowString.substring(j, j + 1);
@@ -51,7 +51,7 @@ public class Controller {
 				}
 
 				// create a MineField object with specific input data and add it to the list
-				MineField mineField = new MineField();
+				final MineField mineField = new MineField();
 				mineField.setMyMineField(inputArray);
 				mineFields.add(mineField);
 			}
@@ -71,7 +71,7 @@ public class Controller {
 	 */
 	String getOutput(final List<MineField> theMineFields) {
 		int counter = 0;
-		StringBuilder result = new StringBuilder();
+		final StringBuilder result = new StringBuilder();
 
 		// Generate presentation for each MineFiled and append to the StringBuilder
 		// object
