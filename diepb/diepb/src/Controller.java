@@ -19,26 +19,27 @@ public class Controller {
 
 	/**
 	 * Read the input and save the input data to a list of MineField object
+	 * 
 	 * @param theScanner the Scanner object use to read the input
 	 * @return the list of MinedFields objects that created from the input data
 	 */
-	public List<MineField> readInput(Scanner theScanner) {
+	List<MineField> readInput(final Scanner theScanner) {
 		List<MineField> mineFields = new ArrayList<MineField>();
 		while (true) {
 			String val = theScanner.nextLine();
-			
-			//check for first line of each MineField
+
+			// check for first line of each MineField
 			Pattern pattern = Pattern.compile("\\d+\\s\\d+");
 			Matcher matcher = pattern.matcher(val);
 
 			// Start processing for each MineField
 			if (matcher.matches() && !val.equals("0 0")) {
 				String[] dimensionSize = val.split(" ");
-				
+
 				// Get dimension of MineField
 				int rowNumbers = Integer.parseInt(dimensionSize[0]);
 				int colNumbers = Integer.parseInt(dimensionSize[1]);
-				
+
 				// Extract the input data to an Array object
 				String[][] inputArray = new String[rowNumbers][colNumbers];
 				for (int i = 0; i < rowNumbers; i++) {
@@ -48,13 +49,13 @@ public class Controller {
 						inputArray[i][j] = rowString.substring(j, j + 1);
 					}
 				}
-				
+
 				// create a MineField object with specific input data and add it to the list
 				MineField mineField = new MineField();
-				mineField.setMyMineField(inputArray);	
+				mineField.setMyMineField(inputArray);
 				mineFields.add(mineField);
 			}
-			
+
 			// Finish the input
 			if (val.equals("0 0"))
 				break;
@@ -64,14 +65,16 @@ public class Controller {
 
 	/**
 	 * Generate a final string for the output with the right format
+	 * 
 	 * @param theMineFields list of MineField objects from input data
 	 * @return a final string for the output with the right format
 	 */
-	public String getOutput(List<MineField> theMineFields) {
+	String getOutput(final List<MineField> theMineFields) {
 		int counter = 0;
 		StringBuilder result = new StringBuilder();
-		
-		// Generate presentation for each MineFiled and append to the StringBuilder object
+
+		// Generate presentation for each MineFiled and append to the StringBuilder
+		// object
 		for (MineField mineField : theMineFields) {
 			mineField.procedureHint();
 			result.append("Field #");

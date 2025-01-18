@@ -12,7 +12,7 @@
 public class MineField {
 	private String[][] myMineField;
 
-	public void setMyMineField(String[][] myMineField) {
+	void setMyMineField(final String[][] myMineField) {
 
 		this.myMineField = myMineField;
 
@@ -21,7 +21,7 @@ public class MineField {
 	/**
 	 * Transforms the MineField into the final form.
 	 */
-	public void procedureHint() {
+	void procedureHint() {
 		for (int i = 0; i < myMineField.length; i++) {
 			for (int j = 0; j < myMineField[0].length; j++) {
 
@@ -44,7 +44,7 @@ public class MineField {
 	 * @param theXIndex the x index of current cell
 	 * @param theYIndex the y index of current cell
 	 */
-	private void updateSurroundingCells(int theXIndex, int theYIndex) {
+	private void updateSurroundingCells(final int theXIndex, final int theYIndex) {
 
 		// Get indexes of surrounding cells of the current cell
 		Integer[][] surroundingCells = { { theXIndex - 1, theYIndex }, { theXIndex - 1, theYIndex - 1 },
@@ -67,7 +67,7 @@ public class MineField {
 	 * @param theXIndex the x index of current cell
 	 * @param theYIndex the y index of current cell
 	 */
-	private void increaseMineCount(int theXIndex, int theYIndex) {
+	private void increaseMineCount(final int theXIndex, final int theYIndex) {
 		String theCell = myMineField[theXIndex][theYIndex];
 
 		// If the cell is not a mine then increase the mine count
@@ -88,7 +88,7 @@ public class MineField {
 	 * @param theYIndex the y index of current cell
 	 * @return true if the index is valid, false otherwise
 	 */
-	public boolean isValidIndex(int theXIndex, int theYIndex) {
+	boolean isValidIndex(final int theXIndex, final int theYIndex) {
 		return theXIndex >= 0 && theXIndex < myMineField.length && theYIndex >= 0 && theYIndex < myMineField[0].length;
 	}
 

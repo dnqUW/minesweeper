@@ -17,6 +17,11 @@ import java.util.Scanner;
  */
 public class Main {
 
+	/**
+	 * main method to run the program
+	 * @param args the arguments that can add when running this program
+	 * @throws FileNotFoundException if the file is not found
+	 */
     public static void main(String[] args) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         
